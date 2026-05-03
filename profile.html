@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+            /* DARK GRADIENT */
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links a {
+            color: #cbd5f5;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* CENTER */
+        .profile-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* GLASS CARD */
+        .profile-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease;
+        }
+
+        /* AVATAR */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #60a5fa;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .info {
+            margin: 10px 0;
+            color: #cbd5f5;
+        }
+
+        /* BUTTON */
+        .shop-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        /* ANIMATIONS */
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>🛒 MyStore</div>
+
+    <div class="nav-links">
+        <a href="catalog.html">Shop</a>
+        <a href="cart.html">Cart</a>
+    </div>
+</div>
+
+<!-- PROFILE -->
+<div class="profile-container">
+    <div class="profile-card">
+
+        <!-- Cartoon Avatar -->
+        <img id="avatar" class="avatar">
+
+        <h2>Welcome 👋</h2>
+
+        <div class="info">Name: <span id="pname"></span></div>
+        <div class="info">Email: <span id="pemail"></span></div>
+
+        <a href="catalog.html" class="shop-btn">🛒 Shop Now</a>
+    </div>
+</div>
+
+<script>
+    let name = localStorage.getItem("name") || "User";
+    let email = localStorage.getItem("email") || "user@mail.com";
+
+    document.getElementById("pname").innerText = name;
+    document.getElementById("pemail").innerText = email;
+
+    // 🎭 Cartoon avatar (DiceBear)
+    document.getElementById("avatar").src =
+        "https://api.dicebear.com/7.x/adventurer/svg?seed=" + name;
+</script>
+
+</body>
+</html>

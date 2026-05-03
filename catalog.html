@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalog</title>
+    <script src="script.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #1f2937;
+            color: white;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔝 NAVBAR -->
+<div class="navbar">
+    <div class="logo">🛒 MyStore</div>
+
+    <div class="nav-links">
+        <a href="profile.html">Profile 👤</a>
+        <a href="cart.html">Cart 🛍️</a>
+        <button onclick="toggleDarkMode()" style="margin-left:10px;">🌙</button>
+    </div>
+</div>
+
+<!-- 🛍️ PRODUCTS -->
+<div class="products">
+
+    <!-- Shoes -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+        <div class="card-content">
+            <h3>Shoes</h3>
+            <p class="price">₹1000</p>
+            <button class="btn" onclick="addToCart('Shoes',1000)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Watch -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+        <div class="card-content">
+            <h3>Watch</h3>
+            <p class="price">₹2000</p>
+            <button class="btn" onclick="addToCart('Watch',2000)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Bag -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400">
+        <div class="card-content">
+            <h3>Bag</h3>
+            <p class="price">₹1500</p>
+            <button class="btn" onclick="addToCart('Bag',1500)">Add to Cart</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
